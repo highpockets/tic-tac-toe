@@ -22,56 +22,38 @@
     <div class='falling-nums bg-numbers'>10001010011101010010010010100010101000101011010101001110011100010100111010100100100101000101010001010110101010011100111000101001110101001001001010001010100010101101010100111001110001010011101010010010010100010101000101011010101001110011</div>
     <div class='rising-nums bg-numbers'>1000101001110101001001001010001010100010101101010100111001110001010011101010010010010100010101000101011010101001110011</div>
     <div class='falling-nums bg-numbers'>10001010011101010010010010100010101000101011010101001110011100010100111010100100100101000101010001010110101010011100111000101001110101001001001010001010100010101101010100111001110001010011101010010010010100010101000101011010101001110011</div>
-    <div class="home">
-        <a href="home.html">
-            <img alt="Home" src="imgs/home-icon.png" width="80" height="80">
-        </a>
-    </div>
     <div id="title-container">
         <div id='title-contents'>
             <div id="title">Tic-Tac-Toe</div>
         </div>
     </div>
-    <div id="game-area-container">
-        <div id="game-score-container" class="inner-container">
-            <div id="game-score-contents" class="inner-contents">
-                <div id="score-grid-container" class="grid-container">
-                    <div id='player1-name'class="heading grid-item">Player 1</div>
-                    <div class="heading grid-item">Tie</div>
-                    <div id="player2-name" class="heading grid-item">Computer</div>
-                    <div id="player1-score" class="value grid-item">0</div>
-                    <div id="tie-game-count" class="value grid-item">0</div>
-                    <div id="player2-score" class="value grid-item">0</div>
-                </div>
-            </div>
-        </div>
-        <div id="gameboard-container" class="inner-container">
-            <div id="gameboard-contents" class="inner-contents">
-                <div id="game-grid-container" class="grid-container">
-                    <div class="game-quad item1" onclick="gameboard.updateQuad(this)"></div>
-                    <div class="game-quad item2" onclick="gameboard.updateQuad(this)"></div>
-                    <div class="game-quad item3" onclick="gameboard.updateQuad(this)"></div>  
-                    <div class="game-quad item4" onclick="gameboard.updateQuad(this)"></div>
-                    <div class="game-quad item5" onclick="gameboard.updateQuad(this)"></div>
-                    <div class="game-quad item6" onclick="gameboard.updateQuad(this)"></div>
-                    <div class="game-quad item7" onclick="gameboard.updateQuad(this)"></div>
-                    <div class="game-quad item8" onclick="gameboard.updateQuad(this)"></div>
-                    <div class="game-quad item9" onclick="gameboard.updateQuad(this)"></div>   
-                </div>
-                <div id="winner-display">PLAYER WINS!!</div>
-            </div>
-        </div>
-        <div id="options-container" class="inner-container">
-            <div id="options-contents" class="inner-contents">
-                <div id="sound-muter"></div>
-                <div id="reset"></div>
-            </div>
+    <div id="form-container" class="inner-container">
+        <div id="form-contents" class="inner-contents">
+            <form class="form" action="game.html" name="gameInfoForm" onsubmit="return(startForm.validateGameInfo());">
+                <label for="gameType">Game Type</label>
+                <select name="gameType" id="gameType" required>
+                    <option value='' selected="selected">Select One</option>
+                    <option value="single" >Single Player</option>
+                    <option value="two" >Two Player</option>
+                </select>
+                <label for='playerOneName'>Player 1 Name</label>
+                <input type="text" name="playerOneName" id="playerOneName" >
+                <label for='playerTwoName'>Player 2 Name</label>
+                <input type="text" name="playerTwoName" id="playerTwoName" >
+                <label for="difficulty">Difficulty</label>
+                <select name="difficulty" id="difficulty">
+                    <option value="normal" selected="selected">Normal</option>
+                    <option value="difficult" >Difficult</option>
+                    <option value="impossible" >Impossible</option>
+                </select>
+                <input id="start" type="submit" value="Start Game">
+            </form>
         </div>
     </div>
 
+    <script src="js/start-game.js"></script>
     <script src="js/color-manipulation.js"></script>
-    <script src="js/environment.js"></script>
-    <script src="js/tic-tac-toe.js"></script>
+    <script src="js/environment-home.js"></script>
 </body>
 
 </html>
