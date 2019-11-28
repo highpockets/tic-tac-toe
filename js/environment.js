@@ -15,6 +15,10 @@ const gameboardColorEffects = (() => {
     let deltaTime = 0.0;
     let deg = 0;
     let fadeReverse = false;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if(isSafari){
+        yPos = -1000;
+    }
 
     for(let i = 0; i < risingNums.length; i++){
         risingNums[i].style.fontSize = '25px';
@@ -75,12 +79,20 @@ const gameboardColorEffects = (() => {
         else{
             yPos -= 15;
         }
-        xPos = 0;
+        if(isSafari){
+            xPos = -1000;
+        }
+        else{
+            xPos = 0;
+        }
+        //matrix.height = window.innerHeight;
 
         for(let i = 0; i < risingNums.length; i++){
-            risingNums[i].style.transform = `translate(${xPos}px, ${yPos - 1600}px)`;
+            risingNums[i].style.webkitTransform = `translate(${xPos}px, ${yPos - 1600}px)`;
+            //risingNums[i].style.overflow = 'hidden';
             xPos += window.innerWidth/10;
-            fallingNums[i].style.transform = `translate(${xPos}px, ${-yPos -200}px)`;
+            fallingNums[i].style.webkitTransform = `translate(${xPos}px, ${-yPos -200}px)`;
+            //fallingNums[i].style.overflow = 'hidden';
             xPos += window.innerWidth/10;
         }
     }
